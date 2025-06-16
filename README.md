@@ -147,3 +147,83 @@ Check your branch name with:
 ```sh
 git branch
 ```
+
+## Troubleshooting: Remote Origin Already Exists
+
+If you see this error:
+```
+error: remote origin already exists.
+```
+It means your git repository already has a remote named `origin`.  
+To change the remote URL, use:
+
+```sh
+git remote set-url origin https://github.com/<your-github-username>/<your-repo-name>.git
+```
+
+To see your current remotes:
+
+```sh
+git remote -v
+```
+
+## How to Push Code to GitHub
+
+1. Initialize git (if you haven't already):
+   ```sh
+   git init
+   ```
+
+2. Add all files:
+   ```sh
+   git add .
+   ```
+
+3. Commit your changes:
+   ```sh
+   git commit -m "Initial commit"
+   ```
+
+4. Add the remote repository (if not already set):
+   ```sh
+   git remote add origin https://github.com/<your-github-username>/<your-repo-name>.git
+   ```
+   If you see "remote origin already exists", use:
+   ```sh
+   git remote set-url origin https://github.com/<your-github-username>/<your-repo-name>.git
+   ```
+
+5. Push your code (replace `main` with your branch name if different):
+   ```sh
+   git push -u origin main
+   ```
+
+Check your branch name with:
+```sh
+git branch
+```
+
+## Troubleshooting: Not All Files Appear on GitHub
+
+If you notice that only some files are visible on GitHub after pushing:
+
+- Make sure you added all files before committing:
+  ```sh
+  git add .
+  git commit -m "Add all project files"
+  git push
+  ```
+
+- Check your `.gitignore` file. Files and folders listed there will not be tracked by git or uploaded to GitHub.
+
+- To see which files are not tracked:
+  ```sh
+  git status
+  ```
+
+- If you need to add a file that was previously ignored, remove it from `.gitignore`, then:
+  ```sh
+  git add <filename>
+  git commit -m "Add missing file"
+  git push
+  ```
