@@ -117,3 +117,33 @@ git remote add origin https://github.com/<your-github-username>/<your-repo-name>
 ```
 
 Replace `<your-github-username>` and `<your-repo-name>` with your actual GitHub username and repository name.
+
+## Troubleshooting Git Push Errors
+
+If you see this error:
+```
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/Alan3r/test123.git'
+```
+This usually means you have not made any commits yet, or your branch is not named `main`. To fix:
+
+1. Make sure you have at least one commit:
+   ```sh
+   git add .
+   git commit -m "Initial commit"
+   ```
+
+2. If your branch is named `master` (the default for some git versions), push using:
+   ```sh
+   git push origin master
+   ```
+   Or, rename your branch to `main`:
+   ```sh
+   git branch -M main
+   git push origin main
+   ```
+
+Check your branch name with:
+```sh
+git branch
+```
